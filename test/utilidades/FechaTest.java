@@ -1,5 +1,7 @@
 package utilidades;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FechaTest {
@@ -36,5 +38,19 @@ class FechaTest {
 
     @org.junit.jupiter.api.Test
     void diasEntreFechas() {
+    }
+
+
+    @Test
+    void esPosterior() {
+        Fecha fAnt = new Fecha(12,04,2023);
+        Fecha fPosterior = new Fecha(7,05,2025);
+        Fecha fIgual = new Fecha(12,04,2023);
+        Fecha fMismoAnio = new Fecha(22,7,2023);
+
+        assertTrue(fPosterior.esPosterior(fAnt));
+        assertFalse(fAnt.esPosterior(fPosterior));
+        assertFalse(fAnt.esPosterior(fIgual));
+        assertTrue(fMismoAnio.esPosterior(fAnt));
     }
 }
